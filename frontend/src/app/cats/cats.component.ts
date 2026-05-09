@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 
-const API = 'http://localhost/api';
+const API = 'http://checkcheckcheck.duckdns.org/api';
 
 @Component({
   selector: 'app-cats',
