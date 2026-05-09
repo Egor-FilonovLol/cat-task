@@ -5,7 +5,6 @@
 
 http://checkcheckcheck.duckdns.org
 
-http://checkcheckcheck.duckdns.org/api/
 
 ## Функционал
 Регистрация и авторизация пользователей (JWT)
