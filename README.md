@@ -21,37 +21,40 @@ http://checkcheckcheck.duckdns.org/api/
 ## Технологии
  Бекенд
 ``` 
-   Django 4.2
+Django 4.2
    
-   Django REST Framework
+Django REST Framework
    
-   Django Channels
+Django Channels
    
-   PostgreSQL
+PostgreSQL
    
-   Redis
+Redis
  
-   JWT аутентификация
+JWT аутентификация
 ```
 
 Фронтенд
 
 ```
-    Angular
+Angular
     
-    Angular Router
+Angular Router
     
-    WebSocket client
+WebSocket client
 
 ```
 
 Инфраструктура
-   
-    Docker & Docker Compose
+
+```
+Docker & Docker Compose
     
-    Nginx
+Nginx
     
-    Daphne
+Daphne
+```
+
 
 ## Запуск проекта
 Требования
