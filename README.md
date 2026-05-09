@@ -19,44 +19,44 @@ http://checkcheckcheck.duckdns.org/api/
 Полная Docker контейнеризация
 
 ## Технологии
- 1. Бекенд
+ Бекенд
  
- Django 4.2
+   Django 4.2
+   
+   Django REST Framework
+   
+   Django Channels
+   
+   PostgreSQL
+   
+   Redis
+ 
+   JWT аутентификация
 
- Django REST Framework
+Фронтенд
 
- Django Channels
-
- PostgreSQL
-
- Redis
-
-JWT аутентификация
-
-2. Фронтенд
-
-Angular
-
-Angular Router
-
-WebSocket client
+    Angular
+    
+    Angular Router
+    
+    WebSocket client
 
 3. Инфраструктура
    
-Docker & Docker Compose
-
-Nginx
-
-Daphne
+    Docker & Docker Compose
+    
+    Nginx
+    
+    Daphne
 
 ## Запуск проекта
 Требования
 
-Docker
-
-Node.js 18+
-
-Python 3.11+
+   Docker
+   
+   Node.js 18+
+   
+   Python 3.11+
 
 Быстрый запуск
 # 1. Клонировать репозиторий
