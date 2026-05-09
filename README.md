@@ -41,7 +41,7 @@ http://checkcheckcheck.duckdns.org/api/
     
     WebSocket client
 
-3. Инфраструктура
+Инфраструктура
    
     Docker & Docker Compose
     
