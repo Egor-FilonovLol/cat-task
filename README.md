@@ -1,11 +1,13 @@
-Тестовое задание
+## Тестовое задание
+
 Веб-приложение для заводчиков котов. Позволяет управлять информацией о котах и общаться с другими заводчиками в реальном времени через WebSocket.
+
 
 http://checkcheckcheck.duckdns.org
 
 http://checkcheckcheck.duckdns.org/api/
 
-Функционал
+## Функционал
 Регистрация и авторизация пользователей (JWT)
 
 Управление котами (CRUD): создание, просмотр, редактирование, удаление
@@ -16,36 +18,40 @@ http://checkcheckcheck.duckdns.org/api/
 
 Полная Docker контейнеризация
 
-Технологии
-Бекенд
-Django 4.2
+## Технологии
+ 1. Бекенд
+ 
+ Django 4.2
 
-Django REST Framework
+ Django REST Framework
 
-Django Channels
+ Django Channels
 
-PostgreSQL
+ PostgreSQL
 
-Redis
+ Redis
 
 JWT аутентификация
 
-Фронтенд
+2. Фронтенд
+
 Angular
 
 Angular Router
 
 WebSocket client
 
-Инфраструктура
+3. Инфраструктура
+   
 Docker & Docker Compose
 
 Nginx
 
 Daphne
 
-Запуск проекта
+## Запуск проекта
 Требования
+
 Docker
 
 Node.js 18+
