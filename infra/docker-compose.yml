@@ -1,0 +1,83 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: cat_postgres
+    environment:
+      POSTGRES_DB: catdb
+      POSTGRES_USER: catuser
+      POSTGRES_PASSWORD: catpass123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U catuser -d catdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - cat_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: cat_redis
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - cat_network
+
+  backend:
+    build: ../backend
+    container_name: cat_backend
+    environment:
+      DB_NAME: catdb
+      DB_USER: catuser
+      DB_PASSWORD: catpass123
+      DB_HOST: postgres
+      DB_PORT: 5432
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      DEBUG: "True"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../backend:/app
+    expose:
+      - "8000"
+    restart: unless-stopped
+    networks:
+      - cat_network
+    working_dir: /app
+    command: >
+      sh -c "python manage.py migrate &&
+             daphne -b 0.0.0.0 -p 8000 backend.asgi:application"
+
+  nginx:
+    container_name: foodgram-proxy
+    image: nginx:1.23.3-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../frontend/dist/frontend/browser:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+    networks:
+      - cat_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  cat_network:
+    driver: bridge
