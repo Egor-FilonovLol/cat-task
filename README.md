@@ -20,7 +20,7 @@ http://checkcheckcheck.duckdns.org/api/
 
 ## Технологии
  Бекенд
- 
+``` 
    Django 4.2
    
    Django REST Framework
@@ -32,14 +32,18 @@ http://checkcheckcheck.duckdns.org/api/
    Redis
  
    JWT аутентификация
+```
 
 Фронтенд
 
+```
     Angular
     
     Angular Router
     
     WebSocket client
+
+```
 
 Инфраструктура
    
