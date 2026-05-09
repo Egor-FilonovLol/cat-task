@@ -21,7 +21,7 @@ http://checkcheckcheck.duckdns.org/api/
 ## Технологии
  Бекенд
 ``` 
-Django 4.2
+Django
    
 Django REST Framework
    
