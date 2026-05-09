@@ -1,38 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 
-const API_URL = 'https://testtask-vtyd.onrender.com/api';
+// ИЗМЕНИ ЭТУ СТРОКУ:
+const API_URL = 'http://checkcheckcheck.duckdns.org/api';
 
 @Injectable({ providedIn: 'root' })
 export class CatService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getCats() {
+  private getHeaders(): HttpHeaders {
     const token = this.authService.getToken();
-    return this.http.get(`${API_URL}/cats/`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
-  createCat(cat: any) {
-    const token = this.authService.getToken();
-    return this.http.post(`${API_URL}/cats/`, cat, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+  getCats(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_URL}/cats/`, { headers: this.getHeaders() });
   }
 
-  updateCat(id: number, cat: any) {
-    const token = this.authService.getToken();
-    return this.http.put(`${API_URL}/cats/${id}/`, cat, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+  createCat(cat: any): Observable<any> {
+    return this.http.post(`${API_URL}/cats/`, cat, { headers: this.getHeaders() });
   }
 
-  deleteCat(id: number) {
-    const token = this.authService.getToken();
-    return this.http.delete(`${API_URL}/cats/${id}/`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+  updateCat(id: number, cat: any): Observable<any> {
+    return this.http.put(`${API_URL}/cats/${id}/`, cat, { headers: this.getHeaders() });
+  }
+
+  deleteCat(id: number): Observable<any> {
+    return this.http.delete(`${API_URL}/cats/${id}/`, { headers: this.getHeaders() });
   }
 }

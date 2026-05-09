@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
+// ИЗМЕНИ ЭТУ СТРОКУ:
 const API_URL = 'http://checkcheckcheck.duckdns.org/api';
 
 @Injectable({ providedIn: 'root' })
